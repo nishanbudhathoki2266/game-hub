@@ -4,6 +4,7 @@ import { Game } from "../hooks/useGames"
 import PlatformIconList from "./PlatformIconList"
 import CriticScore from "./CriticScore"
 import getCroppedImageUrl from "../services/img-url"
+import CardContainer from "./CardContainer"
 
 interface Props {
     game: Game
@@ -11,7 +12,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
     return (
-        <Card borderRadius={10} overflow='hidden' width="300px">
+        <CardContainer>
             <Image src={getCroppedImageUrl(game.background_image)} />
             <CardBody >
                 <Heading fontSize='2xl'>{game.name}</Heading>
@@ -20,7 +21,7 @@ const GameCard = ({ game }: Props) => {
                     <CriticScore score={game.metacritic} />
                 </HStack>
             </CardBody>
-        </Card>
+        </CardContainer>
     )
 }
 export default GameCard
