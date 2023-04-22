@@ -45,7 +45,7 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <div style={{ padding: '10px', display: 'flex', justifyContent: 'space-between', width: '30%' }}>
+        <div style={{ padding: '10px', display: 'flex', justifyContent: 'space-between', width: 'auto' }}>
           <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={handleSelectPlatform} />
           <SortSelector />
         </div>
