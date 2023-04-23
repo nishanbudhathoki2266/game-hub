@@ -10,7 +10,8 @@ import SortSelector from './components/SortSelector';
 
 export interface GameQuery {
   genre: Genre | null;
-  platform: Platform | null
+  platform: Platform | null;
+  sortOrder: string;
 }
 
 const App = () => {
@@ -26,6 +27,10 @@ const App = () => {
 
   const handleSelectPlatform = (platform: Platform) => {
     SetGameQuery({ ...gameQuery, platform })
+  }
+
+  const handleSelectSortOrder = (sortOrder: string) => {
+    SetGameQuery({ ...gameQuery, sortOrder })
   }
 
   return (
@@ -47,7 +52,7 @@ const App = () => {
       <GridItem area="main">
         <div style={{ padding: '10px', display: 'flex', justifyContent: 'space-between', width: 'auto' }}>
           <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={handleSelectPlatform} />
-          <SortSelector />
+          <SortSelector onSelectSortOrder={handleSelectSortOrder} sortOrder={gameQuery.sortOrder} />
         </div>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
